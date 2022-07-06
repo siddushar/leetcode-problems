@@ -38,5 +38,15 @@ Explanation: There is no cycle in the linked list.
 # @return {Boolean}
 
 def hasCycle(head)
-
+   return false if head.nil?
+   
+   slow, fast = head, head
+   
+   while(slow != nil && fast != nil && fast.next != nil)
+     slow = slow.next
+     fast = fast.next.next
+     
+     return true if slow == fast
+   end
+   false
 end
